@@ -1,0 +1,21 @@
+﻿using Five.Bank.Domain.Contracts.v1;
+
+namespace Five.Bank.Domain.Entities.v1;
+public abstract class Transaction : IEntity
+{
+    protected Transaction(decimal amount, DateTime createdAt, string? description)
+       : this(Guid.NewGuid(), amount, createdAt, description) { }
+
+    protected Transaction(Guid id, decimal amount, DateTime createdAt, string? description)
+    {
+        Id = id;
+        Amount = amount;
+        CreatedAt = createdAt;
+        Description = description;
+    }
+
+    public Guid Id { get; set; }
+    public decimal Amount { get; set; }
+    public DateTime CreatedAt { get; set; }
+    public string? Description { get; set; }    
+}
